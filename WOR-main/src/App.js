@@ -1,11 +1,18 @@
-import Login from './components/Login';
+import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
+import Signup from "./Components/Signup";
+
 
 function App() {
   return (
-    <div className="App">
-      <Login/>
-    </div>
+      <Router>
+          <div>
+            <Switch>   
+                <Route > <Signup /> </Route>  
+            </Switch>
+          </div>  
+      </Router>
   );
 }
 
 export default App;
+ 
