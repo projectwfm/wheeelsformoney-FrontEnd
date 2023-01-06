@@ -1,32 +1,59 @@
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import './Signup.css'
+import img from '../images/login.png';
+import axios from 'axios';
 
-const Signup = () => {
 
-    let handleSubmit = (e)=> {
-        e.prevetDefault();
-        alert("Account Created Successfully")
-        
+
+function Signup() {
+  let [firstname, setfirstname] = useState("");
+  let [email, setemail] = useState("");
+  let [password, setpassword] = useState("");
+
+  let fname = (fname) => setfirstname(fname.target.value);
+  let mail = (mail) => setemail(mail.target.value);
+  let psw = (psw) => setpassword(psw.target.value);
+
+
+  const register =()=>{
+     axios.post(" http://localhost:9091/user/signUp",
+     {
+      username:firstname,
+      password:password,
+      email:email
+
+     }).then((res)=>{
+      console.log(res);
+     })
+  }
+
+  let handlesubmit = (e) => {
+    e.preventDefault()
+    if (firstname.length < 3) {
     }
+    alert("submited")
+  }
 
   return (
-    <div className="signup"> 
-        <h1>Wheel For Money </h1>
-        <form onSubmit={handleSubmit}>
-          <h2>Create a new account</h2>
+    <div>
+      <div className='signup'>
+        <div className='img-signup' >
+          <img src={img} alt="" />
+        </div>
+        <div className='content-box-signup'>
 
-            <label>First Name:</label> <input type="text" placeholder="First Name"/> 
-           <label>Last Name:</label>  <input type="text" placeholder="Last Name" />
-            <label>Email:</label>      <input type="email" placeholder="Email" />
-            <label>Password:</label>   <input type="text" placeholder="Password" />
-            <label>Confirm Password:</label>  <input type="text" placeholder="Confirm Password" />
-            
-            <input type="submit" value="Create Account" />
-            <br/ >
-            <div className="login-link"> <Link to="/Login"> Already have an account?  </Link> </div>
-            
-        </form>
-    </div>
-  );
+          <form className='sign-form' onSubmit={handlesubmit}>
+          <div className="title">
+          <h2>Create your Account</h2>
+          </div>
+            <input type="text"  placeholder='Username' onChange={fname} />
+            <input type="password"  placeholder='Password' onChange={psw} />
+            <input type="email"   placeholder='Email' onChange={mail} />
+            <button className='btn-signup'  onClick={register}>Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>)
 }
-
 export default Signup;
