@@ -1,124 +1,69 @@
+
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Home from "./Home";
 import images from "./Images/login1.svg"
+import './styles/login.css'
 
 
 const Login = () => {
-    const [mailid, setMailid] = useState('')
-    const [password, setPassword] = useState('')
-    const [mailidErr, setmailidErr] = useState('');
-    const [pwdError, setPwdError] = useState('');
-    const [successMsg, setSuccessMsg] = useState('')
-    const [users,setUsers]=useState(null)
-    const mailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    const pwdRegex = /^(?=.*[a-z]*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,16}$/;
+    const [username, setuser] = useState('')
+    const [password, setPassword] = useState('');
+    const [userdetails, setUserDetails] = useState(null);
 
 
-    // let user=()=>{
-    //     axios.get("http://localhost:9091/user/login",
-    //     {
-            
-    //     }).then((response)=>{console.log(response)})
-    // }
-    let handleLogin = ()=>
-                        {
-                            
-                            let user=fetch("http://localhost:9091/user/login",{method:"GET", headers : { user: mailid , password : password }    });
-                            user.then((resolve)=>{return resolve.json()})
-                            .then((gitusers)=>
-                            {
-                                console.log(gitusers);
-                                setUsers(gitusers)
-                            }).catch((error)=>
-                            {
-                                console.log(error);
-                            },[])   
-                        }
+
+    let handleLogin = ()=>{
+                            axios.get("http://localhost:9091/user/login", { headers : { user: username , password : password } })
+                            .then((response)=>{console.log(response.data); setUserDetails(response.data)})
+                            .catch((error)=>{console.log(error);})
                         
-    const handlemailidChange = (e) => {
-        setSuccessMsg('');
-        setmailidErr('');
-        setMailid(e.target.value);
-    }
-    const handlePasswordChange = (e) => {
-        setSuccessMsg('');
-        setPwdError('');
-        setPassword(e.target.value)
-    }
-    let handleSubmit = (e) => {
-        e.preventDefault();
-        if (mailid !== '') 
-        {
-            if (mailRegex.test(mailid)) 
-            {
-                setmailidErr('');
-            }
-            else {
-                setmailidErr("Enter valid Email id");
-            }
-        }
-        else 
-        {
-            setmailidErr("Email required");
-        }
+                             console.log("login");
+                          
+                        }
 
-        if (password !== '') {
-            if (pwdRegex.test(password)) {
-                setPassword('');
-            }
-            else {
-                setPwdError("Password must be minimum 8 characters with atleast one uppercase letter, one lower case letter,one special character and one numeric type")
-            }
-        }
-        else {
-            setPwdError("password required");
-        }
-        handleLogin();
-    }
-    let handleSuccessMsg = () => {
-        if (mailid.match(mailRegex)) {
-            if (password.match(pwdRegex)) {
-                setSuccessMsg("");
-                alert("Login Successful");
-            }
-        }
-        else {
-            alert("Login Unsuccessfull")
-        }}
+                        let handleuser=(e)=>{
+                            setuser(e.target.value); 
+                            
+                         }
+                         let handlePsw=(e)=>{
+                             setPassword(e.target.value);
+                             
+                         }
+                         let handleSubmit=(e)=>{
+                            console.log("submite");
+                          e.preventDefault();}
+      
     return ( 
-        <div>
-            {users==null && <div className="maindiv">
-            
-            <div className="imgbx">
-          {/* <h1>Wheels for Money</h1> */}
-            <img src={images} alt="no image" />
+        <>
+        {userdetails==null && <div className="loginpage">
+            <div className="login-img">
+              <img src={images} alt="no image" />
             </div>
-            <div className="contentbox">
-            <div className="sample">
-                <h3> Login</h3>
-            <form className="form" onSubmit={handleSubmit}>
-                        <input type="email text" placeholder="Enter your Email / Username" onChange={handlemailidChange} value={mailid} />
-                        {mailidErr && <div className="error-msg">{mailidErr}</div>} 
-                        <input type="placeholder" placeholder="Enter your password" onChange={handlePasswordChange} value={password} />
-                        {pwdError && <div className="error-msg">{pwdError}</div>} 
-                        <Link to="/forgot" className="forgotp">Forgot Password?</Link>
-                        <input type="submit" value="Submit" />
-                        <hr />         
+            <div className="login-contentBx">
+            <form className="login-form" onSubmit={handleSubmit}>
+            <h1>Login {username} {password} </h1>
+                        <input type="email text" placeholder="Username" onChange={handleuser} value={username}/>
+                        
+                        <input type="placeholder" placeholder="Enter your password" onChange={handlePsw} value={password}/>
+              
+                        <input type="submit" className="btn-login" onClick={ handleLogin} value="Submit" />
+
+                        <Link to="/forgot" className="forgotp"><h4>Forgot Password?</h4></Link>
+                       
+                        <div className="login-remember">
+                           <span>Don't have an Account ? </span> <Link to="/signup"className="createaccount" href="">Create New Account</Link> 
+                        </div>    
             </form>
-            <span>Don't have an Account ? </span>      <Link to="/signup"className="createaccount" href="">Create New Account</Link>
             </div>
-        </div>
-           
-                            </div>}
+                        </div>}
+
+        {userdetails!=null && <Home userdetails={userdetails} setUserDetails={setUserDetails}/>   }
 
 
-                           
-
-
-        </div>
-    );
+        
+        </>
+     )
 }
 export default Login;
-
