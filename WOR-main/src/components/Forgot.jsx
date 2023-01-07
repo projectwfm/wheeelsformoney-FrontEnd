@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import './styles/Forgot.css';
+import forgotimg from "./Images/forgot-img.jpg"
 
 function Forgot() {
 
@@ -12,25 +14,23 @@ function Forgot() {
 
    }
 
-
     return (
-        <div className='body' >
-           
-                 <div className='login' >
-                 <h1>Forgot password</h1><br/>
-                    <form className='form' onClick={handlesubmit} >
-                            <label className='label' htmlFor="">Enter your Mobile number</label><br/>
-                              <input type="text"
-                                  placeholder='mobile number'
+        <div className='forgotpage' >
+                  <div className="forgot-img">
+                    <img src={forgotimg} alt="" />
+                  </div>
+                <div className='contentBx-forgot' >
+                    <form className='forgot-form' onClick={handlesubmit} >
+                       <h2>Forgot password</h2>
+                      <input type="text"
+                                  placeholder='Email'
                                   onChange={({target})=>
                                   {setuserDetails({...userdetails,usename:target.value})
                                         }} />
-                             <br/>
-                            <button  className='btn-login'>Submit</button>
-                   </form>
-                 </div>
-                      
             
+                      <button  className='btn-fogot'>Submit</button>
+                   </form>
+                 </div>        
         </div>
     )
 }
