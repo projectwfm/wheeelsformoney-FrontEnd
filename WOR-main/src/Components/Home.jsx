@@ -2,7 +2,7 @@ import React from 'react'
 
 function Home({userdetails , setUserDetails}) 
 {
-    console.log(userdetails);
+    // console.log(userdetails);
 
     function handleLout()
     {
@@ -12,7 +12,8 @@ function Home({userdetails , setUserDetails})
     return (
     <div>
         <h1>Home page</h1>
-        <h1>hello : {userdetails.username}</h1>
+        {/* <h1>hello : {userdetails.username}</h1> */}
+        <h1>Welcome to Home Page </h1>
         <button onClick={handleLout}> logout </button>
         <hr />
     </div>
