@@ -1,59 +1,104 @@
-import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React, {  useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './styles/Signup.css';
-import img from './Images/login.png';
+import img from './Images/imgSignup.webp';
 import axios from 'axios';
-
+import { useHistory } from 'react-router-dom';
+import SignupPg2 from './SignupPg2';
 
 function Signup() {
-  let [firstname, setfirstname] = useState("");
-  let [email, setemail] = useState("");
-  let [password, setpassword] = useState("");
-  let history = useHistory();
 
-  let fname = (fname) => setfirstname(fname.target.value);
-  let mail = (mail) => setemail(mail.target.value);
-  let psw = (psw) => setpassword(psw.target.value);
+  const [email, setEmail] = useState("");
+  const [otp, setOtp] =useState("")
+  const[verified,Verifiedset] =useState(false);
 
-  const register =()=>{
-     axios.post(" http://localhost:9091/user/signUp",
-     {
-      username:firstname,
-      password:password,
-      email:email
+  const [emailErr, setEmailErr] = useState('');
+  const [otpError, setOtpError] = useState('');
+  const [successMsg, setSuccessMsg] = useState('')
+  const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,16}$/;
 
-     }).then((res)=>{
-      console.log(res);
-      history.push("/")
+  
+  const handleEmail =(e) =>{
+    setEmail(e.target.value);
+    // setSubmitted(false);
+  };  
 
-     })
-  }
-  let handlesubmit = (e) => {
-    e.preventDefault()
-    if (firstname.length < 3) {
+  const handleOtp = (e)=>{
+    setOtp(e.target.value);
+    // setSubmitted(false);
+  };
+
+    const sendOtp =(e)=>{
+      e.preventDefault();
+      console.log(email);
+      axios.get("http://localhost:9091/user/sendotp",
+      {
+       headers :{'email':email,'type' :"signup"}         
+      })
+      .then((res)=>{
+       console.log(res);
+       alert("Otp Sent")
+      })
+      .catch((er)=>{
+                    console.log(er.message);
+                    alert("Email already exist..!!");
+                  })
+   } 
+  
+let history=useHistory()
+
+ const verifyOtp =(e)=>{
+  e.preventDefault();
+  console.log(otp);
+  axios.get("http://localhost:9091/user/verifyotp",
+  {
+   headers:{'email':email,'otp':otp}
+  })
+  .then((res)=>{
+    console.log(res.status);
+    alert("OTP Verified, click OK for further process..!!")
+    if(res.status==200);
+    {
+      Verifiedset(true);
     }
-    alert("submited")
-    history.push("/")
-  }
+  })
+  .catch((error)=>{
+    alert("wrong OTP, enter the correct OTP..!")
+  })
+  
+ } 
+
   return (
-    <div>
-      <div className='signup'>
+    <>
+     {verified ==false && <div className='signup'>
         <div className='img-signup' >
           <img src={img} alt="" />
         </div>
+
         <div className='content-box-signup'>
             <div className="sign-form">
               <h2>Create your Account</h2>
-                <form className='' onSubmit={handlesubmit}>
-                  <input type="text"  placeholder='Username' onChange={fname} />
-                  <input type="password"  placeholder='Password' onChange={psw} />
-                  <input type="email"   placeholder='Email' onChange={mail} />
-                  <button className='btn-signup'  onClick={register}>Submit</button>
-                </form>
-                <p> <span>Already have an account ?</span><Link to="/"> Sign in</Link></p>
+            
+              <div className='class-verify'>
+                <input type="email"   placeholder='Email' onChange={handleEmail} value={email} /> 
+                <button className='btn btn-success verify' onClick={sendOtp} > Send OTP</button>                 
               </div>
+
+              <div className='class-verify'>
+                <input type="text"  placeholder='Enter otp' onChange={handleOtp} value={otp} /> 
+                <button  className="btn btn-success verify" onClick={verifyOtp}> Verify OTP</button> 
+              </div>
+
+            </div>
         </div>
-      </div>
-    </div>)
+
+      </div>}
+      {verified == true && <SignupPg2 /> }
+
+
+      
+    </>)
 }
 export default Signup;
+

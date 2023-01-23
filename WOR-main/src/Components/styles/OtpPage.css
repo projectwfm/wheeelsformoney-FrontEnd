@@ -1,0 +1,107 @@
+
+
+.otp_bx{
+    display: flex;
+    margin-top: 27px;
+    margin-left: 140px;
+
+}
+
+.otp_bx input{
+    width: 250px;
+    height: 40px;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 2px;
+    border: 2px solid #55525c;
+    font-weight: bold;
+    color:black;
+    outline: none;
+    transition: all 0.1s;
+    border: none;
+}
+
+/* .otp_bx input{
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 2px;
+    border: 2px solid #55525c;
+    font-weight: bold;
+    color:black;
+    outline: none;
+    transition: all 0.1s;
+    border: none;
+} */
+
+.otp_bx input:focus{
+    border: 2px solid blue;
+    box-shadow: 0 0 2px 2px rebeccapurple;
+
+}
+.space{
+    margin-right: 1rem !important;
+}
+
+
+.main_otp_bx{
+    height: 210px;
+    width: 550px;
+    background-color: rgba(232, 240, 240, 0.356);
+    margin: auto;
+    margin-top: 10%;
+    border-radius: 10px;
+    padding: 15px;
+
+    
+}
+.h4{
+    margin-left: 20px;
+    padding: 10px;
+}
+
+.otp_bx :hover{
+    transition: 0.3s;
+    background:linear-gradient(-45deg,#D279EE,#F8C390 );
+    box-shadow: 0px 0px 10px rgba(94, 93, 93, 0.264);
+}
+
+.otp_verify_btn{
+    margin-top: 48px;
+    margin-left: 169px;
+    
+}
+.clear_btn{
+    margin-top: 52px;
+    margin-left: 12px;
+}
+p{
+    margin-left: 40px;
+    padding: 10px;
+}
+
+.main_buttom{
+    margin-left: 38px;
+    margin-top: -20px;
+}
+
+.login_resend_otp{
+    margin-left: 150px;
+}
+.resend_otp_timer{
+    margin-left: 150px;
+}
+
+.resend_otp_btn{
+    margin-left: 230px;
+    border: none;
+    background-color: rgb(49, 231, 228);
+    margin-top: -60px;
+    color: red;
+}
+.didnt_receive_code{
+    margin-right: 50px;
+}

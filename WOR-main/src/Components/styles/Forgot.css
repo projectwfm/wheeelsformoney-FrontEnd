@@ -1,8 +1,488 @@
 *{
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+    font-family:sans-serif;
+}
+body{
+    background:linear-gradient(45deg,#D279EE,#F8C390 );
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+.forget{
+    height: 80vh;
+    width: 80vw;
+    border: 1px solid silver;
+    border-radius: 20px;
+    background-color:white;
+    margin: 50px auto;
+    display: flex;
+    position: relative;
+    margin-left: 10%;
+    box-shadow: 2px 2px 20px rgba(94, 93, 93, 0.516);
+}
+.forgot_img{
+    height: 100%; 
+    width: 50%;
+    background-color:white;
+    background-size: 60% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    border-radius:20px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 3%;
+}
+.forget-box{
+    height: 100%;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+    border-radius:0px  20px 20px 0px;   
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border: #ebc4a0 1px solid;
+    background-color: rgba(245, 245, 245, 0.5);
+    padding: 6%;
+}
+.forget-header{
+    font-size: 40px;
+    margin-left: 10%;
+}
+.paragraph{
+    margin-top: 20px;
+    padding: 0px;
+    font-weight: bold;
+
+}
+.paragraph p{
+    /* font-size: 25px; */
+    margin-left: 0%;
+}
+.forget-form{
+    font-size: 20px;
+}
+.forget-form input{
+    border-color: white;
+    width: 80%;
+    height: 8%;
+    text-indent: 8px;
+    border-radius: 10px;
+    outline: none;
+    font-size: 17px;
+    padding: 10px;
+    margin: 5px;
+    margin-left: 35px;
+}
+.fgt-next{
+    margin-left: 35%;
+    margin-top: 12px;
+    background:linear-gradient(45deg,#D279EE,#F8C390 );
+    border-color: white;
+    width: 30%;
+    height: 8%;
+    border-radius: 5px;
+    padding-left: 10px;
+    font-size: 23px;
+    border-radius: 10px;
+}
+.fgt-next:hover{
+    transition: 0.3s;
+    background:linear-gradient(-45deg,#D279EE,#F8C390 );
+    box-shadow: 0px 0px 10px rgba(94, 93, 93, 0.264);
+    border-radius: 5px;
+}
+.forget-otp{
+    height: 200px;
+    width: 530px;
+    background-color: rgba(232, 240, 240, 0.356);
+    margin: auto;
+    margin-top: 10%;
+    border-radius: 10px;
+    padding: 15px;
+}
+.otpdigit{
+    width: 50%;
+    margin-left: 35%;
+    padding: 10px;
+}
+.otpdigit input{
+    border-color: white;
+    width: 57%;
+    height: 8%;
+    text-indent: 20px;
+    border-radius: 10px;
+    outline: none;
+    font-size: 25px;
+}
+.otp-submit{
+    background:linear-gradient(45deg,#D279EE,#F8C390 );
+    border-color: white;
+    width: 45%;
+    height: 8%;
+    /* padding-left: 10px; */
+    font-size: 20px;
+    border-radius: 10px;
+    margin-left: 6%;
+}
+.otp-submit{
+    transition: 0.3s;
+    background:linear-gradient(-45deg,#D279EE,#F8C390 );
+    box-shadow: 0px 0px 10px rgba(94, 93, 93, 0.264);
+    border-radius: 5px;
+}
+.setnewpassword{
+    height: 80vh;
+    width: 80vw;
+    border: 1px solid silver;
+    border-radius: 20px;
+    background-color:white;
+    margin: 50px auto;
+    display: flex;
+    position: relative;
+    margin-left: 10%;
+    box-shadow: 2px 2px 20px rgba(94, 93, 93, 0.516);
+}
+.setnewpassword-img{
+    height: 100%; 
+    width: 50%;
+    background-color:white;
+    background-size: 60% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    border-radius:20px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 3%;
+}
+
+.setnewpassword-box{
+    height: 100%;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+    border-radius:0px  20px 20px 0px;   
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border: #ebc4a0 1px solid;
+    /* background-color: rgba(245, 245, 245, 0.5); */
+    background-color: white;
+    padding: 6%;
+}
+
+.form-setnewpassword h2{
+    margin-left: 17%;
+}
+.form-setnewpassword input{
+    border-color: white;
+    width: 70%;
+    height: 8%;
+    text-indent: 8px;
+    border-radius: 10px;
+    outline: none;
+    font-size: 20px;
+    padding: 7px;
+    margin-left: 15%;
+    margin-top: 10px;
+}
+.btn-setnewpassword{
+    margin-left: 33%;
+    margin-top: 12px;
+    background:linear-gradient(45deg,#D279EE,#F8C390 );
+    border-color: white;
+    width: 36%;
+    height: 8%;
+    border-radius: 5px;
+    padding-left: 10px;
+    font-size: 25px;
+    border-radius: 10px;
+}
+.btn-setnewpassword:hover{
+    transition: 0.3s;
+    background:linear-gradient(-45deg,#D279EE,#F8C390 );
+    box-shadow: 0px 0px 10px rgba(94, 93, 93, 0.264);
+    border-radius: 5px;
+}
+
+
+
+
+
+
+
+/* .fp-body {
+    height: 80vh;
+    width: 80vw;
+    border-radius: 20px;
+    background: white;
+    position: relative;
+     margin: 50px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+.fp-container{
+    width: 90%;
+    height: 90%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 4px 4px 4px 4px rgb(137, 40, 67);
+}
+.forgot-img{
+    height: 100%; 
+    width: 80%;
+    background-color:white;
+    background-size: 60% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    border-radius:20px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+} 
+.forgot-img img{
+    width: 100%;
+}
+.fp-content{
+    width: 50%;
+    height: 100%;
+}
+.fp-name{
+    margin-left: 20%;
+    margin-top: 10%;      
+}
+.fp-name h1{
+    text-align: left;
+    font-size: 65px;
+    margin-left: 0px;
+    margin: auto;
+}
+.btn-login{
+    height: 8%;
+    width: 50%;
+    outline: none;
+    background:linear-gradient(45deg,#D279EE,#F8C390)
+}
+.btn-login:hover{
+    background-color:white;
+}
+        
+@media (max-width:768px)
+{
+.forgot-img img {
+       
+    width: 100%;
+    position: relative;
+    border-radius: 20px;
+}
+.fp-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    border-radius: 20px;   
+} 
+    .fp-content 
+{
+          width: 50%;
+          height: 100%;
+}
+.fp-name
+{
+          margin-left: 100px;
+          margin-top: 100px;
+          
+}
+
+.fp-name h1
+{
+          text-align: left;
+          font-size: 65px;
+          margin-left: 0px;
+          margin: auto;
+}
+}  
+
+
+.fp-text{
+    width: 450px;
+    height: 20px;
+    margin-top: 35px;
+    margin-left: 45px;
+    font-size: 23px;
+    text-align: 2px right ;
+    color: black;      
+}
+.fp-content input{
+          margin-top: 20px;
+          height: 35px;
+          margin-left: 30px;
+          width: 400px;
+          padding-left: 10px;
+          border-top-style: hidden;
+          border-right-style: hidden;
+          border-left-style: hidden;
+          border-bottom-style: groove;
+
+
+}
+.fp-content input:focus{
+          outline: none;
+}
+.fp-content button
+{
+          margin-top: 25px;
+          width: 140px;
+          height: 35px;
+          align-items: center;
+          background-color: blue;
+          float: right;
+          margin-right: 95px;
+          font-size: 25px;
+          color: white;
+}
+.fp-content button:hover{
+          border-color: blue;
+          background-color: white;
+          color: black;
+}
+
+.otpentering{
+          height: 130px;
+          margin: auto;
+          display: block;
+}
+.otpentering h1{
+        margin-left: 350px;
+          color: black;
+          display: flex;
+          text-align: center;
+
+          margin-top: 200px;
+}
+.otpdigit 
+{
+          display: flex;
+          justify-content: center;
+          margin-right: 30px;
+          margin-top: 30px;
+          color: red;
+        
+}
+.otpdigit input
+{
+        border-style: solid;
+        border-color: black;
+        width: 75px;
+        height: 45px;
+        border-radius: 5px;
+        justify-content: space-between ;
+}
+.otpdigit input[type="submit"]{
+        margin-top: 40px;
+        width: 150px;
+        display: center;
+        margin-left: 150px;
+        border-color: brown;
+}
+.otpentering button{
+        width: 180px;
+        margin-right: 180px;
+        margin-top: 50px;
+        border-color: aqua;
+}
+
+.setnewpassword{
+        height: 80vh;
+        width: 80vw;
+        border-radius: 20px;
+        background: white;
+        position: relative;
+        margin: 50px auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+}
+.setnewpassword-img{
+        height: 100%; 
+        width: 50%;
+        background-color:white;
+        background-size: 60% 100%;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        border-radius:20px 20px 20px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+}
+.setnewpassword-box{
+        height: 100%;
+        width: 50%;          
+}
+.setnewpassword form{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        border-radius:0px  20px 20px 0px;
+        flex-direction:column;
+        justify-content:space-evenly;
+        align-items:center;
+       
+}
+.setnewpassword form h1{
+        height: 200px;
+}
+
+.setnewpassword form input{
+        margin-top: 48px;
+        margin-bottom: 20px;
+        border-style: solid;
+        border-color: black;
+        width: 246px;
+        height: 32px;
+        border-radius: 11px;
+        margin-left: 11px;
+        padding: 9px;
+        
+}
+
+.setnewpassword form input[type="submit"]
+{
+    height: 8%;
+    width: 50%;
+    outline: none;
+    background:linear-gradient(45deg,#D279EE,#F8C390);
+        
+}
+.setnewpassword-form input[type="submit"]:hover{
+    background-color:white;
+}
+
+.fp-emailwrong{
+    color: red;
+}
+
+
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 
 .forgotpage{
     height: 80vh;
@@ -13,8 +493,21 @@
     position: relative;
    margin: 50px auto;
    margin-left: 10%;
+   
 
 }
+.otppage{
+    height: 80vh;
+    width: 80vw;
+    background-color: lightgreen;
+    display: flex;
+    border-radius: 20px;
+    position: relative;
+   margin: 50px auto;
+   margin-left: 10%;
+   margin-bottom: 20px;
+}
+
 
 .forgot-img{
     height: 100%;
@@ -29,12 +522,6 @@
 .contentBx-forgot{
   height: 100%;
   width: 50%;
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-  border: #ebc4a0 1px solid;
-
 }
 .forgot-form{  
         height: 100%;
@@ -46,39 +533,29 @@
         justify-content: center;
        
     }
-    
+
 .forgot-form input{
     box-shadow: 2px 2px 20px rgba(94, 93, 93, 0.252);
     border-color: white;
     border: 0px;
     padding: 0;
-    width: 55%;
+    display: flex;
+    width: 50%;
     height: 8%;
-    text-indent: 8px;
-    border-radius: 10px;
+    text-indent: 20px;
+    border-radius: 5px;
     outline: none;
     font-size: 20px;
-    margin-top: 5%;
-}
-
-.btn-fogot{
-    height: 8%;
-    width: 22%;
-    border-radius: 10px;
     margin-top: 8%;
-    border: none;
-    color: white;
-    font-size: larger;
-    box-shadow: 2px 2px 20px rgba(94, 93, 93, 0.516);
-    background:linear-gradient(45deg,#D279EE,#F8C390 );
+}
+.btn-login{
+    height: 50%;
 }
 
-.btn-fogot:hover{
-    transition: 0.3s;
-    background:linear-gradient(-45deg,#D279EE,#F8C390 );
-    box-shadow: 0px 0px 10px rgba(94, 93, 93, 0.264);
-}
+ 
 
+
+ 
 
 @media (max-width:768px)
 {
@@ -99,16 +576,28 @@
         border-radius: 20px;
     } 
     .forgot-form input {
+        height: 76%;
         width: 76%;
+        display: flex;
+
         border-radius: 20px;
         outline: none;
     }
 
-    .btn-fogot{
-        width: 76%;
-        border-radius: 53px;
-        border: none;
-        color: white;
-        font-size: x-large;
-    }
-}  
+     
+ 
+   
+  
+}    */
+
+/* .btn-fogot{
+    height: 8%;
+    width: 50%;
+    border-radius: 10px;
+    margin-top: 8%;
+    border: none;
+    color: white;
+    font-size: larger;
+    box-shadow: 2px 2px 20px rgba(94, 93, 93, 0.516);
+    background:linear-gradient(45deg,#D279EE,#F8C390 );
+} */
